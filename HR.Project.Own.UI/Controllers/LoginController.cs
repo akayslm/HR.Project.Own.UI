@@ -4,7 +4,7 @@ namespace HR.Project.Own.UI.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Register()
         {
             return View();
         }
