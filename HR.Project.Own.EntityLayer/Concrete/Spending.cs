@@ -12,6 +12,7 @@ namespace HR.Project.Own.EntityLayer.Concrete
     {
         public int SpendingId { get; set; }
         public decimal SpendingAmount { get; set; }
+        public string Description { get; set; }
 
         public DateTime RequestDate { get; set; }
 
