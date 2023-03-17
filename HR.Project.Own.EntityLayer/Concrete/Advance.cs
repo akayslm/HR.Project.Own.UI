@@ -12,11 +12,12 @@ namespace HR.Project.Own.EntityLayer.Concrete
     {
         public int AdvanceId { get; set; }
         public decimal AdvanceAmount { get; set; }
-
         public DateTime AdvanceRequestDate { get; set; }
         public DateTime? AdvanceConfirmDate { get; set; }
         public string Description { get; set; }
 
+        public ApprovalStatus ApprovalStatus { get; set; }
+        public Currency Currency { get; set; }
         public AdvanceType AdvanceType { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace HR.Project.Own.EntityLayer.Concrete
         public int SpendingId { get; set; }
         public decimal SpendingAmount { get; set; }
         public string Description { get; set; }
-
         public DateTime RequestDate { get; set; }
 
+        public ApprovalStatus ApprovalStatus { get; set; }
         public User User { get; set; }
         public SpendingType SpendingType { get; set; }
         public Currency Currency  { get; set; }
