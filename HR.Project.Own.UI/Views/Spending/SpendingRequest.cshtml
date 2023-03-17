@@ -1,22 +1,26 @@
 ﻿@using HR.Project.Own.EntityLayer.Concrete
+@using HR.Project.Own.EntityLayer.Enum
 @model Spending
 
 @{
-    ViewData["Title"] = "SpendingRequest";
+    ViewData["Title"] = "Harcama Talep Et";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
-    <form>
+    <form asp-controller="Spending" asp-action="SpendingRequest" method="post" novalidate="novalidate">
         <div class="col-9 mx-auto">
             <div style="background-color:honeydew" class="card">
                 <div class="card-body">
                     <h2 class="card-title">HARCAMA TALEP ET</h2>
+                    <br />
                     <div class="row">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Harcama Türü</label>
+                            <label asp-for="SpendingType" class="col-sm-3 col-form-label">Harcama Türü</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <select asp-for="SpendingType" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(SpendingType))">
+                                    <option>Lütfen Bir Harcama Türü Seçiniz...</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -24,64 +28,33 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Harcama Miktarı</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="SpendingAmount" type="number" class="form-control" />
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Para Birimi</label>
+                            <label asp-for="Currency" class="col-sm-3 col-form-label">Para Birimi</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <select asp-for="Currency" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(Currency))">
+                                    <option>Lütfen Bir Para Birimi Seçiniz...</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Açıklama</label>
+                            <label asp-for="Description" class="col-sm-3 col-form-label">Açıklama</label>
                             <div class="col-sm-9">
-                                <textarea style="margin-bottom:20px" id="aciklama" name="#" rows="4" class="form-control"></textarea>
+                                <textarea asp-for="Description" style="margin-bottom:20px" id="aciklama" name="#" rows="4" class="form-control"></textarea>
                             </div>
                         </div>
-                    </div>                    
-                    @*<div class="row">
-                    <div class="col-md-6">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">TC No</label>
-                    <div class="col-sm-9">
-                    <input type="number" class="form-control" />
                     </div>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Cinsiyeti</label>
-                    <div class="col-sm-9">
-                    <select class="form-control">
-                    <option>Erkek</option>
-                    <option>Kadın</option>
-                    </select>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-                    <div class="row">
-                    <div class="col-md-12">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Adresi</label>
-                    <div class="col-sm-12">
-                    <textarea style="margin-bottom:20px" id="adres1" name="#" rows="4" class="form-control"></textarea>
-                    </div>
-                    </div>
-                    </div>
-                    </div>*@
-                    <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Kaydet</button>
+                    <button style="margin-bottom:60px" type="submit" class="btn btn-gradient-info btn-block">Kaydet</button>
                     <br />
                 </div>
             </div>
         </div>
-
     </form>
 
     <!-- container-scroller -->

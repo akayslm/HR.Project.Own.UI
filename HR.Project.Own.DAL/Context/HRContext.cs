@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HR.Project.Own.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,12 @@ namespace HR.Project.Own.DAL.Context
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Server=DESKTOP-P0H9JIH; Database=HRDBOwn; uid=sa; pwd=orti1903");
         }
+
+        public DbSet<Advance> Advances { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<Spending> Spendings { get; set; }
+        public DbSet<User> Users { get; set; }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HR.Project.Own.EntityLayer.Abstract;
+using HR.Project.Own.EntityLayer.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,11 @@ namespace HR.Project.Own.EntityLayer.Concrete
         public string TCNo { get; set; }
         public DateTime IseGirisTarihi { get; set; }
         public DateTime? IstenCikisTarihi { get; set; }
-        public string Meslek { get; set; }
+        public string Meslek { get; set; }        
         public string Departman { get; set; }
         public string Email { get; set; }
         public string Adres { get; set; }
         public string CepTelefonu { get; set; }
+        public Gender Gender { get; set; }
     }
 }

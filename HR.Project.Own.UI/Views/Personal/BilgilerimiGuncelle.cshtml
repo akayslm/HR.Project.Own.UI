@@ -1,29 +1,33 @@
-﻿@{
+﻿@using HR.Project.Own.EntityLayer.Concrete
+@using HR.Project.Own.EntityLayer.Enum
+@model User
+
+@{
     ViewData["Title"] = "Bilgilerimi Güncelle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
-    <form>
+    <form asp-controller="Personal" asp-action="BilgilerimiGuncelle" method="post" novalidate="novalidate">
         <div class="col-12">
             <div style="background-color:honeydew" class="card">
                 <div class="card-body">
                     <h3 class="card-title">BİLGİLERİMİ GÜNCELLE</h3>
-
+                    <br />
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Adı</label>
+                                <label asp-for="Adi" class="col-sm-3 col-form-label">Adı</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" />
+                                    <input asp-for="Adi" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">2. Adı</label>
+                                <label asp-for="Adi2" class="col-sm-3 col-form-label">2. Adı</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" />
+                                    <input asp-for="Adi2" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -31,35 +35,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Soyadı</label>
+                                <label asp-for="Soyadi" class="col-sm-3 col-form-label">Soyadı</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" />
+                                    <input asp-for="Soyadi" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Telefonu</label>
+                                <label asp-for="CepTelefonu" class="col-sm-3 col-form-label">Telefonu</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Mail Adresi</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Doğum Tarihi</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="date" />
+                                    <input asp-for="CepTelefonu" type="number" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -67,19 +53,36 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">TC No</label>
+                                <label asp-for="Email" class="col-sm-3 col-form-label">Mail Adresi</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" />
+                                    <input asp-for="Email" type="email" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Cinsiyeti</label>
+                                <label asp-for="DogumTarihi" class="col-sm-3 col-form-label">Doğum Tarihi</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control">
-                                        <option>Erkek</option>
-                                        <option>Kadın</option>
+                                    <input asp-for="DogumTarihi" class="form-control" type="date" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label asp-for="TCNo" class="col-sm-3 col-form-label">TC No</label>
+                                <div class="col-sm-9">
+                                    <input asp-for="TCNo" type="number" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label asp-for="Gender" class="col-sm-3 col-form-label">Cinsiyeti</label>
+                                <div class="col-sm-9">
+                                    <select asp-for="Gender" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(Gender))">
+                                        <option>Cinsiyetiniz</option>
                                     </select>
                                 </div>
                             </div>
@@ -88,17 +91,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">İşe Giriş Tarihi</label>
+                                <label asp-for="IseGirisTarihi" class="col-sm-3 col-form-label">İşe Giriş Tarihi</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" />
+                                    <input asp-for="IseGirisTarihi" class="form-control" type="date" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">İşten Çıkış Tarihi</label>
+                                <label asp-for="IstenCikisTarihi" class="col-sm-3 col-form-label">İşten Çıkış Tarihi</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" />
+                                    <input asp-for="IstenCikisTarihi" class="form-control" type="date" />
                                 </div>
                             </div>
                         </div>
@@ -106,20 +109,21 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Adresi</label>
+                                <label asp-for="Adres" class="col-sm-3 col-form-label">Adresi</label>
                                 <div class="col-sm-12">
-                                    <textarea style="margin-bottom:20px" id="adres1" name="#" rows="4" class="form-control"></textarea>
+                                    <textarea asp-for="Adres" style="margin-bottom:20px" id="adres1" name="#" rows="4" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Kaydet</button>
+                    <button style="margin-bottom:60px" type="submit" class="btn btn-gradient-info btn-block">Kaydet</button>
                     <br />
                 </div>
             </div>
         </div>
 
     </form>
+
 
     <!-- container-scroller -->
     <!-- plugins:js -->
