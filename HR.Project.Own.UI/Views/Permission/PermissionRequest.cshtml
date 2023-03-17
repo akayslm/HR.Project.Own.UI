@@ -1,7 +1,4 @@
-﻿@using HR.Project.Own.EntityLayer.Concrete
-@model Spending
-
-@{
+﻿@{
     ViewData["Title"] = "SpendingRequest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,7 +8,7 @@
         <div class="col-9 mx-auto">
             <div style="background-color:honeydew" class="card">
                 <div class="card-body">
-                    <h2 class="card-title">HARCAMA TALEP ET</h2>
+                    <h2 class="card-title">İZİN TALEP ET</h2>
                     <div class="row">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Harcama Türü</label>
@@ -43,39 +40,7 @@
                                 <textarea style="margin-bottom:20px" id="aciklama" name="#" rows="4" class="form-control"></textarea>
                             </div>
                         </div>
-                    </div>                    
-                    @*<div class="row">
-                    <div class="col-md-6">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">TC No</label>
-                    <div class="col-sm-9">
-                    <input type="number" class="form-control" />
                     </div>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Cinsiyeti</label>
-                    <div class="col-sm-9">
-                    <select class="form-control">
-                    <option>Erkek</option>
-                    <option>Kadın</option>
-                    </select>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-                    <div class="row">
-                    <div class="col-md-12">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Adresi</label>
-                    <div class="col-sm-12">
-                    <textarea style="margin-bottom:20px" id="adres1" name="#" rows="4" class="form-control"></textarea>
-                    </div>
-                    </div>
-                    </div>
-                    </div>*@
                     <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Kaydet</button>
                     <br />
                 </div>
